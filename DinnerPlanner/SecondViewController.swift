@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class SecondViewController: UIViewController {
 
@@ -19,6 +20,7 @@ class SecondViewController: UIViewController {
     let datePicker = UIDatePicker()
     
 
+    @IBOutlet weak var requestButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +71,60 @@ class SecondViewController: UIViewController {
         
         self.view.endEditing(true)
     }
+    
+    @IBAction func startRequest(_ sender: Any) {
+        performRequest()
+
+    }
+    
+    
+    
+    func performRequest(){
+        
+        let cityName = "Konstanz"
+        let radius = 2000
+        
+        let urlStr =  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+\(cityName)&radius=\(radius)&key=AIzaSyC51kVvQ30YBdmhq4ivir2LhF65U50_6C4&sensor=true"
+        guard let url = URL(string: urlStr) else {
+            print("invalid url")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { (data:Data?, response: URLResponse?, error: Error?) in
+            
+            if let error = error{
+                print(error)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse{
+                
+                if response.statusCode >= 400{
+                    print("Computer says NO: \(response.statusCode)")
+                    return
+                }
+            }
+            else {
+                print("no response received")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
+            let json = JSON(data:data)
+            print("Received JSON: %@", json.description)
+            print(json["results"][0])
+            
+        }
+        
+        task.resume()
+        
+    }
+    
+    
 }
 
 
