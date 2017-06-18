@@ -383,6 +383,7 @@
 				A91918D51EF694DF0020803F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
