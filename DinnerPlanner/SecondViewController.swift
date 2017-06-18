@@ -12,9 +12,33 @@ import SwiftyJSON
 class SecondViewController: UIViewController {
 
     
+    
     @IBOutlet weak var datePickerText: UITextField!
     @IBOutlet weak var locationText: UITextField!
     @IBOutlet weak var groupNameText: UITextField!
+    
+   
+    @IBOutlet weak var radiusText: UILabel!
+    @IBAction func radiusSlider(_ sender: UISlider) {
+        radiusText.text = String(Int(sender.value))
+    }
+    
+    @IBOutlet weak var frequencyText: UILabel!
+    @IBAction func frequencySlider(_ sender: UISlider) {
+        switch Int(sender.value){
+        case 1:
+            frequencyText.text = "Alle 2 Monate"
+        case 2:
+            frequencyText.text = "Monatlich"
+        case 3:
+            frequencyText.text = "Alle 2 Wochen"
+        case 4:
+            frequencyText.text = "Wöchentlich"
+        default:
+            frequencyText.text = "Wöchentlich"
+        }
+    
+    }
     
     
     let datePicker = UIDatePicker()
@@ -26,11 +50,6 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         
         makeDatePicker()
-        
-        
-        
-        //locationText.inputAccessoryView = createToolbarWithDoneButton()
-        //groupNameText.inputAccessoryView = createToolbarWithDoneButton()
         
         
     }
