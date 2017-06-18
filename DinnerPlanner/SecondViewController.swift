@@ -115,7 +115,7 @@ class SecondViewController: UIViewController {
             }
             
             let json = JSON(data:data)
-            print("Received JSON: %@", json.description)
+           // print("Received JSON: %@", json.description)
             print(json["results"][0])
             
             var restaurants = [Restaurant]()
@@ -143,6 +143,16 @@ class SecondViewController: UIViewController {
             for index in 0 ..< restaurants.count {
                 print(restaurants[index].name)
             }
+            
+            
+            var startDate = self.datePicker.date
+            
+            print(startDate)
+            
+            
+            
+            
+            
         }
         
         task.resume()

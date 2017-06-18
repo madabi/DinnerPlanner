@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		702729A21EF6CF04005CCFC7 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702729A11EF6CF04005CCFC7 /* Restaurant.swift */; };
+		702729A41EF6DD3F005CCFC7 /* ProgramData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702729A31EF6DD3F005CCFC7 /* ProgramData.swift */; };
 		94DB959C66AEB92EB67E403A /* Pods_DinnerPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02BE612FFDFD2E9DD0B37B1 /* Pods_DinnerPlanner.framework */; };
 		A91918C31EF694DF0020803F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91918C21EF694DF0020803F /* AppDelegate.swift */; };
 		A91918C51EF694DF0020803F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91918C41EF694DF0020803F /* FirstViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		3E2500123F9234714F5E6079 /* Pods-DinnerPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DinnerPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DinnerPlanner/Pods-DinnerPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 		702729A11EF6CF04005CCFC7 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		702729A31EF6DD3F005CCFC7 /* ProgramData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramData.swift; sourceTree = "<group>"; };
 		98CA140004F22BA7067F3185 /* Pods-DinnerPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DinnerPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-DinnerPlanner/Pods-DinnerPlanner.release.xcconfig"; sourceTree = "<group>"; };
 		A91918BF1EF694DF0020803F /* DinnerPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DinnerPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91918C21EF694DF0020803F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				A91918CD1EF694DF0020803F /* LaunchScreen.storyboard */,
 				A91918D01EF694DF0020803F /* Info.plist */,
 				702729A11EF6CF04005CCFC7 /* Restaurant.swift */,
+				702729A31EF6DD3F005CCFC7 /* ProgramData.swift */,
 			);
 			path = DinnerPlanner;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				702729A21EF6CF04005CCFC7 /* Restaurant.swift in Sources */,
 				A91918C71EF694DF0020803F /* SecondViewController.swift in Sources */,
 				A91918C31EF694DF0020803F /* AppDelegate.swift in Sources */,
+				702729A41EF6DD3F005CCFC7 /* ProgramData.swift in Sources */,
 				A91918C51EF694DF0020803F /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
