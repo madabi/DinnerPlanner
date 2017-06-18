@@ -118,6 +118,31 @@ class SecondViewController: UIViewController {
             print("Received JSON: %@", json.description)
             print(json["results"][0])
             
+            var restaurants = [Restaurant]()
+            
+            for index in 0 ..< json["results"].count {
+                var resti_json = json["results"][index]
+                var resti = Restaurant()
+                resti.name = resti_json["name"].stringValue
+                resti.icon = resti_json["icon"].url
+                resti.id = resti_json["id"].stringValue
+                resti.place_id = resti_json["place_id"].stringValue
+                resti.formatted_address = resti_json["formatted_address"].stringValue
+                resti.rating = resti_json["rating"].doubleValue
+                resti.photo_width = resti_json["photos"]["photo_width"].intValue
+                resti.photo_height = resti_json["photos"]["photo_height"].intValue
+                resti.photo_url = resti_json["photos"]["html_attributions"].stringValue
+                resti.location_lat = resti_json["geometry"]["location"]["lat"].doubleValue
+                resti.location_long = resti_json["geometry"]["location"]["lng"].doubleValue
+                
+                restaurants.append(resti)
+            }
+            
+            
+            print(restaurants.count)
+            for index in 0 ..< restaurants.count {
+                print(restaurants[index].name)
+            }
         }
         
         task.resume()
