@@ -16,9 +16,8 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var datePickerText: UITextField!
     @IBOutlet weak var locationText: UITextField!
     @IBOutlet weak var groupNameText: UITextField!
-    
-   
     @IBOutlet weak var radiusText: UILabel!
+    
     @IBAction func radiusSlider(_ sender: UISlider) {
         radiusText.text = String(Int(sender.value))
     }
@@ -40,11 +39,17 @@ class SecondViewController: UIViewController {
     
     }
     
-    
     let datePicker = UIDatePicker()
-    
 
     @IBOutlet weak var requestButton: UIButton!
+    
+    
+    @IBOutlet weak var requestGroupName: UITextField!
+    @IBOutlet weak var requestCityName: UITextField!
+    
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,12 +105,14 @@ class SecondViewController: UIViewController {
     
     func performRequest(){
         
-        let cityName = "Konstanz"
-        let radius = 2000
+        if radiusText.text == "0" {
+            radiusText.text = "1"
+        }
         
-        let urlStr =  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+\(cityName)&radius=\(radius)&key=AIzaSyC51kVvQ30YBdmhq4ivir2LhF65U50_6C4&sensor=true"
+        let urlStr =  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+\(requestCityName.text!)&radius=\(radiusText.text!)000&key=AIzaSyC51kVvQ30YBdmhq4ivir2LhF65U50_6C4&sensor=true"
         guard let url = URL(string: urlStr) else {
             print("invalid url")
+            print(urlStr)
             return
         }
         
@@ -164,14 +171,18 @@ class SecondViewController: UIViewController {
             }
             
             
-            var startDate = self.datePicker.date
+            let startDate = self.datePicker.date
             
             print(startDate)
             
+            let program = ProgramData(groupName: self.requestGroupName.text!, startDate: startDate, frequency: self.frequencyText.text!, restaurants: restaurants)
             
-            
-            
-            
+            print("Request:")
+            print(self.requestCityName.text!)
+            print(program.groupName)
+            print(program.frequency)
+            print("Startdatum: ", startDate)
+            print("Radius: ", self.radiusText.text!)
         }
         
         task.resume()
